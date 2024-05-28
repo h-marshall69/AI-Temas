@@ -70,7 +70,7 @@ class Color:
 
         font = self.main.pygame.font.Font(self.main.FONT, 100)
         introText = font.render("COLOR", True, 'white')
-        self.main.screen.blit(introText, center=(640, 100))
+        self.main.screen.blit(introText, (100, 100))
 
         rect = self.main.pygame.Rect(20, 300, 300, 50)
         self.main.pygame.draw.rect(self.main.screen, 'white', rect, 2)
