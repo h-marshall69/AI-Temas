@@ -8,8 +8,8 @@ pygame.init()
 PANTALLA = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("Menu")
 
-BG = pygame.image.load("assets/images/Background.png")
-FG = pygame.image.load("assets/images/FON.jpg")
+BG = pygame.image.load("Assets/images/Background.png")
+FG = pygame.image.load("Assets/images/FON.jpg")
 
 
 def get_font(size):
@@ -204,7 +204,7 @@ def main_menu():
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
                     pygame.quit()
                     sys.exit()
-
+                                            
         pygame.display.update()
 
 def run_game_casas():
