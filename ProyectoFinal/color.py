@@ -65,29 +65,33 @@ class Color:
 
 
     def draw_menu(self):
+        #self.main.screen.fill(COLOR_FONDO)
         self.main.screen.blit(self.main.background, (0, 0))
 
-        font = self.main.font
-        introText = font.render("COLOR", True, self.main.BLACK)
-        self.main.screen.blit(introText, (0, 0))
+        font = self.main.pygame.font.Font(self.main.FONT, 100)
+        introText = font.render("COLOR", True, 'white')
+        self.main.screen.blit(introText, center=(640, 100))
+
+        rect = self.main.pygame.Rect(20, 300, 300, 50)
+        self.main.pygame.draw.rect(self.main.screen, 'white', rect, 2)
 
         mouse = self.main.pygame.mouse.get_pos()
         if 190 >= mouse[0] >= 90 and 90 >= mouse[1] >= 50:
-            font = self.main.pygame.font.SysFont(FONT, 50, bold=True)
+            font = self.main.pygame.font.SysFont(self.main.FONT, 80, bold=True)
             introText = font.render("Back->", True, BLACK)
             self.main.screen.blit(introText, (85, 45))
-            font = self.main.pygame.font.SysFont(FONT, 40, bold=True)
+            font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Play->", True, BLACK)
             self.main.screen.blit(introText, (90, 100))
         elif 190 >= mouse[0] >= 90 and 140 >= mouse[1] >= 100:
-            font = self.main.pygame.font.SysFont(FONT, 40, bold=True)
+            font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Back->", True, BLACK)
             self.main.screen.blit(introText, (90, 50))
-            font = self.main.pygame.font.SysFont(FONT, 50, bold=True)
+            font = self.main.pygame.font.SysFont(self.main.FONT, 80, bold=True)
             introText = font.render("Play->", True, BLACK)
             self.main.screen.blit(introText, (85, 95))
         else:
-            font = self.main.pygame.font.SysFont(FONT, 40, bold=True)
+            font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Back->", True, BLACK)
             self.main.screen.blit(introText, (90, 50))
             introText = font.render("Play->", True, BLACK)

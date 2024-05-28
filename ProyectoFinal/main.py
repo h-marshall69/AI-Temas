@@ -31,8 +31,9 @@ class Ventana:
         self.screen = self.pygame.display.set_mode((self.HEIGHT, self.WIDTH))
         self.background = self.pygame.image.load("assets/images/Background.png")
         #pygame.font.Font("assets/images/font.ttf", size)
-        self.font = self.pygame.font.Font("assets/images/font.ttf", 40)
-        #self.font = self.pygame.font.SysFont(FONT, 40, bold=True)
+        self.FONT = "assets/images/font.ttf"
+        #self.font = self.pygame.font.Font("assets/images/font.ttf", 40)
+        self.font = self.pygame.font.SysFont(self.FONT, 40, bold=True)
         self.pygame.display.set_caption("Abadeer Games")
 
     def dibujar_cuadrados(self):
