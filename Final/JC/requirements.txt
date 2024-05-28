@@ -1,0 +1,4 @@
+pygame
+sympy
+
+y un archivo logic
