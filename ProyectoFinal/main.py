@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+#https://www.chosic.com/free-music/all/?keyword=Komiku&artist
 from mine import Mine
 from color import Color
 from gato import Gato
@@ -59,14 +60,16 @@ class Ventana:
                         
                     elif 320 >= mouse[0] >= 220 and 200 >= mouse[1] >= 100:
                         #running = False
-                        #self.mine = Mine(self)
-                        #self.mine.run_game()
-                        self.screen = self.pygame.display.set_mode((1280, 720))
-                        casas.run_game_casas()
+                        self.mine = Mine(self)
+                        self.mine.run_game()
+                        
+                        
                     elif 440 >= mouse[0] >= 340 and 200 >= mouse[1] >= 100:
                         #running = False
-                        self.house = House(self)
-                        self.house.run_game()
+                        #self.house = House(self)
+                        #self.house.run_game()
+                        self.screen = self.pygame.display.set_mode((1280, 720))
+                        casas.run_game_casas()
                     elif 200 >= mouse[0] >= 100 and 320 >= mouse[1] >= 220:
                         #running = False
                         self.gato = Gato(self)
