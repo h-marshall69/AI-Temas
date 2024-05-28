@@ -237,7 +237,7 @@ class Color:
                         self.main.__init__()
                         self.main.run_main()
 
-            self.main.screen.fill(COLOR_FONDO)
+            self.main.screen.blit(self.main.background, (0, 0))
             self.draw_colores()
             self.main.pygame.display.flip()
 

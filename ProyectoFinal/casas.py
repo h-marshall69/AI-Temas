@@ -171,7 +171,8 @@ def play():
         pygame.display.update()
 
 def main_menu():
-    while True:
+    running = True
+    while running:
         PANTALLA.blit(BG, (0, 0))
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
@@ -202,8 +203,9 @@ def main_menu():
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options()
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    pygame.quit()
-                    sys.exit()
+                    running = False
+                    #pygame.quit()
+                    #sys.exit()
                                             
         pygame.display.update()
 
