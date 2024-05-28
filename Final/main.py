@@ -45,22 +45,22 @@ class Ventana:
                 if event.type == self.pygame.MOUSEBUTTONDOWN:
                     mouse = self.pygame.mouse.get_pos()
                     if 200 >= mouse[0] >= 100 and 200 >= mouse[1] >= 100:
-                        running = False
-                        self.mine = Color(self)
-                        self.mine.run_menu()
+                        #running = False
+                        self.color = Color(self)
+                        self.color.run_menu()
                         
                     elif 320 >= mouse[0] >= 220 and 200 >= mouse[1] >= 100:
-                        running = False
+                        #running = False
                         self.mine = Mine(self)
-                        self.mine.run_menu()
+                        self.mine.run_game()
                     elif 440 >= mouse[0] >= 340 and 200 >= mouse[1] >= 100:
-                        running = False
-                        self.mine = House(self)
-                        self.mine.run_menu()
+                        #running = False
+                        self.house = House(self)
+                        self.house.run_game()
                     elif 200 >= mouse[0] >= 100 and 320 >= mouse[1] >= 220:
-                        running = False
-                        self.mine = Gato(self)
-                        self.mine.run_menu()
+                        #running = False
+                        self.gato = Gato(self)
+                        self.gato.run_game()
 
             self.screen.fill(COLOR_FONDO)
             self.dibujar_cuadrados()
