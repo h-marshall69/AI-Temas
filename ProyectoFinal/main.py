@@ -6,6 +6,7 @@ from mine import Mine
 from color import Color
 from gato import Gato
 from house import House
+from mine2 import App
 import casas
 FONT = 'couriernew'
 # Dimensiones y posición de los cuadrados
@@ -35,15 +36,28 @@ class Ventana:
         self.FONT = "assets/images/font.ttf"
         #self.font = self.pygame.font.Font("assets/images/font.ttf", 40)
         self.font = self.pygame.font.SysFont(self.FONT, 40, bold=True)
-        self.pygame.display.set_caption("Abadeer Games")
+        self.pygame.display.set_caption("Games")
 
     def dibujar_cuadrados(self):
+        font = self.pygame.font.Font(self.FONT, 80)
+        introText = font.render("Juegos", True, 'white')
+        self.screen.blit(introText, (80, 500))
+        font = self.pygame.font.Font(self.FONT, 20)
+        introText = font.render("cambiar nombre", True, 'white')
+        self.screen.blit(introText, (80, 600))
+        font = self.pygame.font.Font(self.FONT, 20)
+        introText = font.render("cambiar nombre", True, 'white')
+        self.screen.blit(introText, (80, 630))
+        font = self.pygame.font.Font(self.FONT, 20)
+        introText = font.render("cambair nombre", True, 'white')
+        self.screen.blit(introText, (80, 650))
         self.pygame.draw.rect(self.screen, self.BLACK, (100, 100, 100, 100))
         self.pygame.draw.rect(self.screen, self.BLACK, (220, 100, 100, 100))
         self.pygame.draw.rect(self.screen, self.BLACK, (340, 100, 100, 100))
         self.pygame.draw.rect(self.screen, self.BLACK, (100, 220, 100, 100))
 
     def run_main(self):
+        
         running = True
         while running:
             for event in self.pygame.event.get():
@@ -60,8 +74,8 @@ class Ventana:
                         
                     elif 320 >= mouse[0] >= 220 and 200 >= mouse[1] >= 100:
                         #running = False
-                        self.mine = Mine(self)
-                        self.mine.run_game()
+                        self.mine = App(self)
+                        self.mine.play_game(10)
                         
                         
                     elif 440 >= mouse[0] >= 340 and 200 >= mouse[1] >= 100:
@@ -79,6 +93,8 @@ class Ventana:
             self.screen.blit(self.background, (0, 0))
             self.dibujar_cuadrados()
             self.pygame.display.flip()
+
+
 
 if __name__ == "__main__":
     ventana = Ventana()

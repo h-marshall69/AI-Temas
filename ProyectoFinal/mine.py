@@ -1,4 +1,5 @@
 import pygame
+import sys
 # Colors used
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -66,6 +67,8 @@ class Mine:
                                 WIDTH,
                                 HEIGHT])
                 self.grid[row][column].show_text()
+    def adjust_grid(self, sizex, sizey):
+        pass
 
     def draw_menu(self):
         #self.main.screen.fill(COLOR_FONDO)
@@ -73,29 +76,29 @@ class Mine:
 
         font = self.main.pygame.font.Font(self.main.FONT, 80)
         introText = font.render("Minesweeper", True, 'white')
-        self.main.screen.blit(introText, (0, 0))
+        self.main.screen.blit(introText, (80, 100))
 
         mouse = self.main.pygame.mouse.get_pos()
-        if 190 >= mouse[0] >= 90 and 90 >= mouse[1] >= 50:
+        if 250 >= mouse[0] >= 150 and 370 >= mouse[1] >= 300:
             font = self.main.pygame.font.SysFont(self.main.FONT, 80, bold=True)
             introText = font.render("Back->", True, BLACK)
-            self.main.screen.blit(introText, (85, 45))
+            self.main.screen.blit(introText, (150, 300))
             font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Play->", True, BLACK)
-            self.main.screen.blit(introText, (90, 100))
-        elif 190 >= mouse[0] >= 90 and 140 >= mouse[1] >= 100:
+            self.main.screen.blit(introText, (150, 350))
+        elif 250 >= mouse[0] >= 150 and 450 >= mouse[1] >= 380:
             font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Back->", True, BLACK)
-            self.main.screen.blit(introText, (90, 50))
+            self.main.screen.blit(introText, (150, 300))
             font = self.main.pygame.font.SysFont(self.main.FONT, 80, bold=True)
             introText = font.render("Play->", True, BLACK)
-            self.main.screen.blit(introText, (85, 95))
+            self.main.screen.blit(introText, (140, 340))
         else:
             font = self.main.pygame.font.SysFont(self.main.FONT, 70, bold=True)
             introText = font.render("Back->", True, BLACK)
-            self.main.screen.blit(introText, (90, 50))
+            self.main.screen.blit(introText, (150, 300))
             introText = font.render("Play->", True, BLACK)
-            self.main.screen.blit(introText, (90, 100))
+            self.main.screen.blit(introText, (150, 350))
 
 
     def run_game(self):
@@ -108,14 +111,30 @@ class Mine:
                     sys.exit()
                 if event.type == self.main.pygame.MOUSEBUTTONDOWN:
                     mouse = self.main.pygame.mouse.get_pos()
-                    if 190 >= mouse[0] >= 90 and 90 >= mouse[1] >= 50:
+                    if 250 >= mouse[0] >= 150 and 370 >= mouse[1] >= 300:
                         self.main.__init__()
                         self.main.run_main()
-                    elif 190 >= mouse[0] >= 90 and 140 >= mouse[1] >= 100:
+                    elif 250 >= mouse[0] >= 150 and 450 >= mouse[1] >= 380:
                         #running = False
-                        self.init_game()
+                        #self.init_game()
                         self.run_game_easy()
 
             self.main.screen.blit(self.main.background, (0, 0))
             self.draw_menu()
+            self.main.pygame.display.flip()
+
+    def run_game_easy(self):
+        running = True
+        while running:
+            for event in self.main.pygame.event.get():
+                if event.type == self.main.pygame.QUIT:
+                    self.main.pygame.quit()
+                    running = False
+                    sys.exit()
+                if event.type == self.main.pygame.MOUSEBUTTONDOWN:
+                    mouse = self.main.pygame.mouse.get_pos()
+                    self.run_game()
+
+            #self.main.screen.blit(self.main.background, (0, 0))
+            self.draw_game()
             self.main.pygame.display.flip()
